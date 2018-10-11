@@ -16,27 +16,24 @@
     </div>
     <div class="card top-card mat-elevation-z1">
       <span class="top-card__label">Most Predicted Stocks</span>
-      <div class="top-card__predictions">
-        <button mat-button mat-flat-button color="accent">
-          <span>AMD 12.04%</span>
-          <mat-icon>arrow_downward</mat-icon>
-        </button>
-        <button mat-button mat-flat-button color="primary">
-          <span>AMD 12.04%</span>
-          <mat-icon>arrow_downward</mat-icon>
-        </button>
-        <button mat-button mat-flat-button color="warn">
-          <span>AMD 12.04%</span>
-          <mat-icon>arrow_downward</mat-icon>
-        </button>
+      <div class="top-card__buttons">
+        <ng-template ngFor let-company [ngForOf]="topCompanies">
+          <button mat-button mat-raised-button [color]="isGain(company.change) ? 'primary': 'accent'" (click)="onButtonClick(company)">
+            <span>{{company.ticker}} {{company.change}}%</span>
+            <mat-icon>{{isGain(company.change) ? 'arrow_upward': 'arrow_downward'}}</mat-icon>
+          </button>
+        </ng-template>
       </div>
     </div>
 
     <div class="form-card">
       <form [formGroup]="formGroup">
-        <mat-radio-group>
-          <mat-radio-button value="BTC">BTC</mat-radio-button>
-          <mat-radio-button value="ETH">ETH</mat-radio-button>
+        <mat-radio-group value="mm">
+          <mat-radio-button value="BTC">BTC</mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button value="ETH">ETH</mat-radio-button>&nbsp;&nbsp;
+          <mat-radio-button value="mm">
+            <input type="text" class="form-field mat-elevation-z1" value="mm"/>
+          </mat-radio-button>
         </mat-radio-group>
       </form>
     </div>
@@ -53,7 +50,81 @@
     </div>
 
     <div class="card table-card mat-elevation-z1">
-      Table
+      <span>Useful Metrics</span>
+      <div class="table-card__content">
+        <div>
+          <span>
+            <span>Previous Close</span>
+            <span>40.56</span>
+          </span>
+          <span>
+            <span>Open</span>
+            <span>40.18</span>
+          </span>
+          <span>
+            <span>Bid</span>
+            <span>37.78 X 34100</span>
+          </span>
+          <span>
+            <span>Ask</span>
+            <span>40.81 X 4000</span>
+          </span>
+        </div>
+        <div>
+            <span>
+                <span>Days Range</span>
+                <span>39.78-40.71</span>
+              </span>
+              <span>
+                <span>52Weak Range</span>
+                <span>17.41-41.33</span>
+              </span>
+              <span>
+                <span>Volume</span>
+                <span>5692811</span>
+              </span>
+              <span>
+                <span>Avg. Volume</span>
+                <span>8966818</span>
+              </span>
+        </div>
+        <div>
+            <span>
+                <span>Market Cap</span>
+                <span>12.25</span>
+              </span>
+              <span>
+                <span>Beta</span>
+                <span>0.61</span>
+              </span>
+              <span>
+                <span>PE Ratio (TTM)</span>
+                <span>7.65</span>
+              </span>
+              <span>
+                <span>EPS (TTM)</span>
+                <span>5.22</span>
+              </span>
+        </div>
+        <div>
+            <span>
+                <span>Earnings Date</span>
+                <span>8/15/2018</span>
+              </span>
+              <span>
+                <span>Forward Dividend & yield</span>
+                <span>1.51(3.79%)</span>
+              </span>
+              <span>
+                <span>Ex-Dividend Date</span>
+                <span>6/14/2018</span>
+              </span>
+              <span>
+                <span>Ly Target Date</span>
+                <span>35.46</span>
+              </span>
+        </div>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

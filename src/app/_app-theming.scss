@@ -1,0 +1,15 @@
+
+
+@mixin app-theming($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    .header-card>span{
+        &:nth-child(1) {
+            color: mat-color($primary, 500);
+        }
+        a {
+            color: mat-color($accent, 500);
+        }
+    }
+}
+

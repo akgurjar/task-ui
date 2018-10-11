@@ -1,0 +1,5 @@
+{
+    "port": 8000,
+    "files": ["./dist/TaskUI/**/*.{html,htm,css,js}"],
+    "server": { "baseDir": "./dist/TaskUI" }
+}

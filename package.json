@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --base-href ./",
+    "server": "npm run build && lite-server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,6 +26,7 @@
     "chartist": "^0.11.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
+    "lite-server": "^2.4.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
