@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import './ng-theming';
+@import "../node_modules/chartist/dist/scss/settings/_chartist-settings.scss";
+@import "../node_modules/chartist/dist/scss/chartist.scss";
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
